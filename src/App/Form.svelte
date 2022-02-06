@@ -4,7 +4,6 @@
     export let text: string;
     export let isMistake: boolean = false;
     export let height: number;
-    console.log(height)
 
     const dispatch = createEventDispatcher<{input: string}>()
 

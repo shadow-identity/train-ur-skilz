@@ -1,7 +1,7 @@
 
 # Train Ur Skilz!
 
-This is a project for training skills of blind typing of special characters based on Svelte.
+This is a project for training touch typing special characters. It is based on Svelte.
 
 ## Get started
 

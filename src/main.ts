@@ -1,4 +1,5 @@
-import App from './App.svelte';
+import App from './App/App.svelte';
+import { storeDefaultSymbols } from './App/db';
 
 const app = new App({
 	target: document.body,
@@ -6,5 +7,10 @@ const app = new App({
 		// name: 'world'
 	}
 });
+
+storeDefaultSymbols()
+// if ('serviceWorker' in navigator) {
+// 	navigator.serviceWorker.register('build/sw.js');
+// }
 
 export default app;

@@ -2,8 +2,6 @@
     export let samples = '';
     export let clientHeight: number;
 
-    $: console.log('Sample cH', clientHeight)
-    // const text = samples.join(' ')
 </script>
 
 <p bind:clientHeight translate="no">{samples}</p>

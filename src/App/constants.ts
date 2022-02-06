@@ -1,0 +1,120 @@
+export type CharItem = {
+    names: string[];
+    char: string;
+}
+export enum Layout {
+    'QWERTY' = 'QWERTY',
+    'QWERTZ' = 'QWERTZ',
+    'AZERTY' = 'AZERTY',
+}
+export type SymbolsCollection = {
+    id?: number
+    layout: Layout
+    name: string
+    symbols: CharItem[]
+}
+
+export const symbolsConfig: SymbolsCollection[] = [
+    {
+        id: 0,
+        layout: Layout.QWERTY,
+        name: 'Numbers Row',
+        symbols: [
+            {names: ['grave accent'], char: '`'},
+            {names: ['tilde'], char: '~'},
+            {names: ['exclamation mark', 'factorial', 'bang'], char: '!'},
+            {names: ['at', 'commercial at'], char: '@'},
+            {names: ['number', 'hash'], char: '#'},
+            {names: ['dollar'], char: '$'},
+            {names: ['percent'], char: '%'},
+            {names: ['caret', 'circumflex accent'], char: '^'},
+            {names: ['ampersand'], char: '&'},
+            {names: ['asterisk', 'star'], char: '*'},
+            {names: ['left parenthesis', 'opening parenthesis'], char: '('},
+            {names: ['right parenthesis', 'closing parenthesis'], char: ')'},
+            {names: ['parentheses', 'parens', 'round brackets'], char: '()'},
+            {names: ['low line'], char: '_'},
+            {names: ['hyphen', 'minus', 'hyphen-minus'], char: '-'},
+            {names: ['plus'], char: '+'},
+            {names: ['equals'], char: '='},
+        ],
+    },
+    {
+        id: 1,
+        layout: Layout.QWERTY,
+        name: 'Letter Rows',
+        symbols: [
+            {names: ['curly brackets', 'braces'], char: '{}'},
+            {names: ['semicolon'], char: ';'},
+            {names: ['colon'], char: ':'},
+            {names: ['apostrophe', 'apostrophe-quote'], char: '\''},
+            {names: ['quotation'], char: '"'},
+            {names: ['less-than'], char: '<'},
+            {names: ['greater-than'], char: '>'},
+            {names: ['square brackets'], char: '[]'},
+            {names: ['reverse solidus', 'backslash'], char: '\\'},
+            {names: ['vertical bar', 'vertical line'], char: '|'},
+            {names: ['solidus', 'slash'], char: '/'},
+        ],
+    },
+    {
+        id: 2,
+        layout: Layout.QWERTZ,
+        name: 'Numbers Row T1',
+        symbols: [
+            {names: [''], char: '^'},
+            {names: [''], char: '°'},
+            {names: [''], char: '!'},
+            {names: [''], char: '"'},
+            {names: [''], char: '§'},
+            {names: [''], char: '$'},
+            {names: [''], char: '%'},
+            {names: [''], char: '&'},
+            {names: [''], char: '/'},
+            {names: [''], char: '('},
+            {names: [''], char: ')'},
+            {names: [''], char: '()'},
+            {names: [''], char: '='},
+            {names: [''], char: '?'},
+            {names: [''], char: '`'},
+            {names: [''], char: 'ß'},
+            {names: [''], char: '´'},
+            {names: [''], char: '²'},
+            {names: [''], char: '³'},
+            {names: [''], char: '€'},
+            {names: [''], char: '{'},
+            {names: [''], char: '['},
+            {names: [''], char: ']'},
+            {names: [''], char: '}'},
+            {names: [''], char: '\\'},
+            {names: [''], char: ''},
+        ],
+    },
+    {
+        id: 3,
+        layout: Layout.QWERTZ,
+        name: 'Letter Rows T1',
+        symbols: [
+            {names: [''], char: 'ü'},
+            {names: [''], char: '+'},
+            {names: [''], char: '*'},
+            {names: [''], char: 'ö'},
+            {names: [''], char: 'ä'},
+            {names: [''], char: '#'},
+            {names: [''], char: '\''},
+            {names: [''], char: ','},
+            {names: [''], char: '.'},
+            {names: [''], char: '-'},
+            {names: [''], char: ';'},
+            {names: [''], char: ':'},
+            {names: [''], char: '_'},
+            {names: [''], char: '<'},
+            {names: [''], char: '>'},
+            {names: [''], char: '|'},
+            {names: [''], char: '~'},
+            {names: [''], char: 'µ'},
+            {names: [''], char: '@'},
+            {names: [''], char: '€'},
+        ],
+    },
+]

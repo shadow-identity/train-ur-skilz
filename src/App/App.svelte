@@ -1,17 +1,26 @@
 <script lang="ts">
-    import Form from "./App/Form.svelte";
-    import Sample from "./App/Sample.svelte";
-    import { symbolsConfig, getCharsString, shuffleSattolo } from "./constants";
+    import Form from "./Form.svelte";
+    import Sample from "./Sample.svelte";
+    import Sidebar from "./Sidebar.svelte";
+    import { symbolsConfig } from "./constants";
+    import { getSymbolsCollections } from "./db";
 
     let isMistake = false
     let sampleHeight: number;
     let formText = ''
+    let collectionId: number = 0;
+    let sample = ''
+    console.log(sample)
 
-    const sampleText = shuffleSattolo(getCharsString(symbolsConfig)).join(' ')
+    const filterCollections = async () => await getSymbolsCollections()
+    
+    // todo: move it to webworker
+    const collectionsPromise = filterCollections()
+    // const sampleText = shuffleSattolo(getCharsString(symbolsConfig[0].symbols)).join(' ')
     
     const handleInput = (event: CustomEvent<string>) => {
         const actual = event.detail
-        const expected = sampleText.slice(0, actual.length)
+        const expected = sample.slice(0, actual.length)
         if (actual !== expected) {
             isMistake = true
             // console.log(`"${actual}" !== "${expected}"`)
@@ -19,6 +28,8 @@
             isMistake = false
         }
     }
+    // const getCollection = 
+
 </script>
 
 <header>
@@ -26,11 +37,19 @@
         Train Ur Skilz!
     </h1>
 </header>
+{#await collectionsPromise}
+    <p>...loading</p>
+{:then collections}
+    <Sidebar symbolsCollections={collections} bind:selectedCollectionId={collectionId} bind:sample />
+{/await}
 
-<main>
-    <Form on:input={handleInput} isMistake={isMistake} height={sampleHeight} bind:text={formText}/>
-    <Sample samples={sampleText} bind:clientHeight={sampleHeight} />
-</main>
+{#if sample}
+    <main>
+        <Form on:input={handleInput} isMistake={isMistake} height={sampleHeight} bind:text={formText} />
+        <Sample samples={sample} bind:clientHeight={sampleHeight} />
+    </main>
+{/if}
+
 
 <style>
     header {
